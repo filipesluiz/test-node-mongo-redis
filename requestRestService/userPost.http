@@ -1,0 +1,8 @@
+POST  http://localhost:3000/service
+content-type: application/json
+
+{
+    "name": "Filipe Souza",
+    "mail": "filipesluiz@github.com",
+    "role": "DEV"
+}

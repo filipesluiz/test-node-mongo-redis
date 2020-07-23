@@ -5,8 +5,6 @@ const app = express();
 
 require('../routes/index')(app); //config routes in index by ref
 
-const router = express.Router();
-
 app.use(bodyParser.urlencoded({
     extended: true
 }));

@@ -18,7 +18,7 @@ exports.getById = (req, res, next) => {
 
 
 exports.post = (req, res, next) => {
-    const newUser = req.body();
+    const newUser = req.body;
 
     Repository.create(newUser)
         .then(user => res.status(200).send(user))
@@ -27,7 +27,7 @@ exports.post = (req, res, next) => {
 
 
 exports.put = (req, res, next) => {
-    const u = req.body();
+    const u = req.body;
 
     Repository.update(req.params.id, u)
         .then(user => res.status(201).send(user))

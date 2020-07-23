@@ -12,12 +12,12 @@ module.exports = new class UserRepositoty {
         return User.findById(id);
     }
 
-    create(User){
-        return User.create(User);
+    create(user){
+        return User.create(user);
     }
 
-    update(id, User){
-        const updateUser = Object.assign(User);
+    update(id, user){
+        const updateUser = Object.assign(user);
         return User.findByIdAndUpdate(id, updateUser, {new: true});
     }
 
