@@ -1,7 +1,7 @@
 'useStrict';
 
 var mongoose = require('mongoose');
-var User = require('../config/db');
+var {User} = require('../config/db');
 
 module.exports = new class UserRepositoty {
     getAll(){

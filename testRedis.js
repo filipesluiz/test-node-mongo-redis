@@ -1,4 +1,4 @@
-    const test = (redisClient) => {
+const test = (redisClient) => {
     //Testing Redis commands
     redisClient.set('total', 1800);
     redisClient.get('total', (error, value) => console.log(value));

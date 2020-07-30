@@ -1,2 +1,2 @@
-GET http://localhost:3000/service/5f18ea929055325548127a04
+GET http://localhost:3000/service
 Content-Type: "application/json"
