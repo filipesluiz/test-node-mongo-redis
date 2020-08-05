@@ -1,7 +1,11 @@
+const ArtigosRepository = require('../repositories/artigosRepository');
+
 module.exports = (app) => {
 
     app.get('/', (req, res) => {
-        res.render('home/index');
+        //res.render('home/index');
+        console.log('chamou!!!', ArtigosRepository.findAll());
+        res.send(ArtigosRepository.findAll());
     });
     
     app.get('/add_noticia', (req, res) => {
