@@ -16,17 +16,47 @@ var User = mongoose.model('User', userSchema);
 var redis = require('redis');
 var redisClient = redis.createClient();
 
+
 /** MYSQL **/
 var mysql = require('mysql');
-var conn = mysql.createConnection({
+
+var pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: 'admin',
     database: 'bau_talentos'
 });
 
-conn.connect((err) => {
-    console.log('error to connect!', err);
-});
+//using wrapper with js object
+const PoolConnections = ( function(){
+    async function execute (query){
+        return await new Promise((resolve, reject) => {
+            pool.getConnection((err, connection) => {
+                if(err)
+                    reject(err);
+        
+                connection.query(query, (error, result) => {
+                    connection.release();
+                    if(error)
+                        throw error;
+                    console.log('Query result:', result);
+                    resolve(result);
+                });
+            });
+        })
+    }
 
-module.exports = {User, redisClient, conn};
+    return {
+        query: execute
+    }
+
+})();
+    
+ 
+
+// conn.connect((err) => {
+//     if(err)
+//         console.log('error to connect!', err);
+// });
+
+module.exports = {User, redisClient, PoolConnections};

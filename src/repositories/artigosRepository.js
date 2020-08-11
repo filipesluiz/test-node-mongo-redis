@@ -1,9 +1,9 @@
-var {conn} = require('../config/db');
+var {PoolConnections} = require('../config/db');
 
 module.exports = new class ArtigosRepositoty {
-    findAll(){
-        conn.query('select * from artigos', (error, result) => {
-            return result;
+    findAll(callback){
+        PoolConnections.query('select * from artigos').then((result) => {
+            return callback(result);
         });
     }
 }

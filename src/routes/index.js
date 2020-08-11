@@ -4,8 +4,10 @@ module.exports = (app) => {
 
     app.get('/', (req, res) => {
         //res.render('home/index');
-        console.log('chamou!!!', ArtigosRepository.findAll());
-        res.send(ArtigosRepository.findAll());
+        ArtigosRepository.findAll((result) => {
+            console.log('Query Route', result);
+            res.send(result);
+        });
     });
     
     app.get('/add_noticia', (req, res) => {
