@@ -1,8 +1,8 @@
 /** MONGO **/
 var mongoose = require('mongoose');
 //mongoose.connect("mongodb://127.0.0.1:27017/db_users", {useNewUrlParser: true, useUnifiedTopology: true});
-mongoose.connect("mongodb://oifibraappuser:t3mpor4ri4@19@127.0.0.1:27020/db_users"
-, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb://10.61.47.233:27020/db_users"
+, {useNewUrlParser: true, useUnifiedTopology: true, user:'oifibraappuser', pass:'t3mpor4ri4@19@'});
 
 var Schema = mongoose.Schema;
 
