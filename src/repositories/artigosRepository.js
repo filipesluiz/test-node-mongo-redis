@@ -1,4 +1,4 @@
-var {PoolConnections} = require('../config/db');
+/*var {PoolConnections} = require('../config/db');
 
 module.exports = new class ArtigosRepositoty {
     findAll(callback){
@@ -6,4 +6,4 @@ module.exports = new class ArtigosRepositoty {
             return callback(result);
         });
     }
-}
+}*/

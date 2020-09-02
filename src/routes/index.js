@@ -1,13 +1,13 @@
-const ArtigosRepository = require('../repositories/artigosRepository');
+//const ArtigosRepository = require('../repositories/artigosRepository');
 
 module.exports = (app) => {
 
     app.get('/', (req, res) => {
-        //res.render('home/index');
-        ArtigosRepository.findAll((result) => {
+       res.render('home/index');
+       /* ArtigosRepository.findAll((result) => {
             console.log('Query Route', result);
             res.send(result);
-        });
+        });*/
     });
     
     app.get('/add_noticia', (req, res) => {
