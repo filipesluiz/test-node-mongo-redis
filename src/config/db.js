@@ -16,8 +16,17 @@ var User = mongoose.model('User', userSchema);
 
 /** REDIS **/
 var redis = require('redis');
-var redisClient = redis.createClient(6379, '10.58.4.167');
-redisClient.auth('oifibra@platapp_dev', () => console.log('Redis Connected!!!'));
+//var redisClient = redis.createClient(6379, '10.61.47.238');
+var redisClient = redis.createClient({
+    host : '10.61.47.238',
+    port : 6379,
+    no_ready_check: true,
+    auth_pass: 'oifibra@platapp_dev'                                                                                                                                                    
+});
+//redisClient.auth('oifibra@platapp_dev', () => console.log('Redis Connected!!!'));
+redisClient.on('error', err => {
+    console.log("Erro Redis", err);
+});
 
 
 /** MYSQL **/
